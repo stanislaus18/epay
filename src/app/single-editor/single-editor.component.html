@@ -1,0 +1,26 @@
+<br>
+<br>
+<div class="row single-editor">
+  <div class="row col-md-12 total-editor">
+  <div class="col-md-4">
+    <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent"
+    (ngModelChange)="onKeySingleEditor()"></app-ngx-editor>
+  </div>
+  <div class="col-md-2 button-es">
+    <div class="row">
+      <div class="col-md-6 back-color-plus"><i class="fa fa-plus" aria-hidden="true"></i></div>
+      <div class="col-md-6 back-color-minus"><i class="fa fa-minus" aria-hidden="true"></i></div>
+    </div>
+  </div>
+  <div class="col-md-6" *ngIf="htmlContent !=='' && htmlContent" style="padding: 0px 0px 0px 29px;"> 
+    <div class="background-json">
+    
+    {{'{'}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'"data":['}}<br>
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'"' + htmlContent + '"'}}</div>
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;{{']'}}<br>{{'}'}}
+    <!-- <pre id="json"></pre> -->
+  </div>
+  
+</div>
+</div>
+</div>

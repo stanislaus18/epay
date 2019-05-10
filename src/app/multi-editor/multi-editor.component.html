@@ -1,0 +1,24 @@
+<br>
+<br>
+<div class="row single-editor">
+  <div class="row col-md-12 total-editor" *ngFor="let multidata of multidatas; let i=index;">
+  <div class="col-md-4">
+    <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="multidata.htmlContent"
+    (ngModelChange)="onKeyMultiEditor()"></app-ngx-editor>
+  </div>
+  <div class="col-md-2 button-es">
+    <div class="row">
+      <div class="col-md-6 back-color-plus" (click)="pushData()"><i class="fa fa-plus" aria-hidden="true"></i></div>
+      <div class="col-md-6 back-color-minus" (click)="popData()"><i class="fa fa-minus" aria-hidden="true"></i></div>
+    </div>
+  </div>
+  <div class="col-md-6" style="padding: 0px 0px 0px 29px;" *ngIf="multidatas && multidatas[0] && multidatas[0].htmlContent !=='' && multidatas[0].htmlContent" > 
+    <div *ngIf="i === 0" class="background-json">
+      {{'{'}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'"data":['}}<br>
+      <div *ngFor="let multi of multidatas; let j=index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'"' + (multi.htmlContent ? multi.htmlContent : '') + '"'}}</div>
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;{{']'}}<br>{{'}'}}
+      <!-- <pre id="json"></pre> -->
+    </div>
+  </div>
+</div>
+</div>
